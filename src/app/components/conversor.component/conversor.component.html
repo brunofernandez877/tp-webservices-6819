@@ -1,0 +1,49 @@
+<main class="py-5" style="background-color: #f8f9fa; min-height: 100vh;">
+    <div class="container d-flex justify-content-center align-items-center">
+        
+        <div class="card shadow-lg" style="width: 350px; background-color: #1a4a75; border: none; border-radius: 0;">
+            
+            <div class="card-header text-white text-center py-3" style="border-bottom: 1px solid #2c6291;">
+                <h5 class="mb-0 fw-normal">Conversor De Divisas</h5>
+            </div>
+            
+            <div class="card-body text-white p-4">
+
+                <div class="mb-3">
+                    <label class="form-label small text-light">Cantidad</label>
+                    <input type="number" class="form-control rounded-0" placeholder="Cantidad" [(ngModel)]="cantidad">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small text-light">De</label>
+                    <select class="form-select rounded-0" [(ngModel)]="monedaOrigen">
+                        <option *ngFor="let moneda of monedas" [value]="moneda.codigo">
+                            {{ moneda.nombre }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small text-light">A</label>
+                    <select class="form-select rounded-0" [(ngModel)]="monedaDestino">
+                        <option *ngFor="let moneda of monedas" [value]="moneda.codigo">
+                            {{ moneda.nombre }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" class="form-control rounded-0 fw-bold" readonly [value]="resultado" placeholder="Resultado">
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button class="btn fw-bold rounded-0" style="background-color: #fca311; color: #14213d;" (click)="convertirDivisa()">
+                        Convertir <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
